@@ -1,1 +1,1 @@
-(https://marctarrade.github.io/swapi_v2/)
+API : [https://swapi.dev/](https://swapi.dev/)
