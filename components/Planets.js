@@ -37,7 +37,7 @@ class Planets extends React.Component{
             headers: { "Content-Type":"application/json" }
         };
         for (let i = 1; i <= 6; i++) {
-            fetch("https://swapi.dev/api/planets/?page="+i, init)
+            fetch("https://www.swapi.tech/api/planets/?page="+i, init)
             .then((res) => {
                 res.json()
                 .then((data) => {

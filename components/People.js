@@ -37,7 +37,7 @@ class People extends React.Component{
             headers: { "Content-Type":"application/json" }
         };
         for (let i = 1; i <= 9; i++) {
-            fetch("https://swapi.dev/api/people/?page="+i, init)
+            fetch("https://www.swapi.tech/api/people/?page="+i, init)
             .then((res) => { 
                 res.json()
                 .then((data) => {

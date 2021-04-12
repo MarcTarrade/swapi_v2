@@ -37,7 +37,7 @@ class Vehicles extends React.Component{
             headers: { "Content-Type":"application/json" }
         };
         for (let i = 1; i <= 4; i++) {
-            fetch("https://swapi.dev/api/vehicles/?page="+i, init)
+            fetch("https://www.swapi.tech/api/vehicles/?page="+i, init)
             .then((res) => { 
                 res.json()
                 .then((data) => {

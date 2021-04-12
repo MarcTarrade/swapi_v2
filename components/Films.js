@@ -25,7 +25,7 @@ class Films extends React.Component{
                     contentContainerStyle={{display: 'flex', justifyContent:'space-evenly'}}
                     data={this.state.films}
                     keyExtractor={(item, index) => index.toString()}
-                    renderItem={({ item }) => (<Item title={item.title}/>)}
+                    renderItem={({ item }) => (<Item title={item.properties.title}/>)}
                 />
             </View>
         );
@@ -35,11 +35,12 @@ class Films extends React.Component{
         const init = {
             method:'GET',
             headers:{"Content-Type":"application/json"}};
-        fetch('https://swapi.dev/api/films/', init)
+        fetch('https://www.swapi.tech/api/films/', init)
         .then((res) => { 
             res.json()
             .then((data) => {
-                var res = data.results
+                var res = data.result
+                console.log(res)
                 this.setState({ films : res });
             });
         }).catch(error => console.error(error));
