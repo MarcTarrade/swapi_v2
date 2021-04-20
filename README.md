@@ -24,7 +24,12 @@ Toujours dans le répertoire lancer l'application avec:
 ## Avantages:
 - Compatibilité entre tous les appareils
 - Gain de temps 
+- Gratuit
+- open-source 
+- communauté active
 
 ## Inconvénients:
 - Framework difficile au début
 - Limité en termes de composants natif
+- Défis de sécurité liés à JavaScripts.
+- Problèmes de gestion de la mémoire
