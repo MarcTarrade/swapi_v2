@@ -26,5 +26,5 @@ Toujours dans le répertoire lancer l'application avec:
 - Gain de temps 
 
 ## Inconvénients:
-- Framwork difficile au début
+- Framework difficile au début
 - Limité en termes de composants natif
