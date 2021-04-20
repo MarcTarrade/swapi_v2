@@ -7,7 +7,7 @@
 # Description of the app:
 The objective of the application is to list all the information about the Star Wars universe(planets, species, starships, ...).
 
-API : [https://www.swapi.tec/](https://www.swapi.tech/)
+API : [https://www.swapi.tech/](https://www.swapi.tech/)
 
 # Installation
 
