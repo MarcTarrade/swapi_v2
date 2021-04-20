@@ -18,3 +18,13 @@ Dans le répertoire:
 Toujours dans le répertoire lancer l'application avec:
 
 `expo start`
+
+# Avantages / Inconvénients
+
+## Avantages:
+- Compatibilité entre tous les appareils
+- Gain de temps 
+
+## Inconvénients:
+- Framwork difficile au début
+- Limité en termes de composants natif
