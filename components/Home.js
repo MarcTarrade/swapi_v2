@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { ImageBackground, Button, StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 class Home extends React.Component{
     constructor(props){
@@ -8,6 +8,7 @@ class Home extends React.Component{
 
     render(){
         return(
+		<ImageBackground source={image} style={styles.image}>
         <View style={styles.home}>
             <TouchableOpacity style={styles.btn} onPress={() => this.props.navigation.navigate("Starships")}>
                 <Text>Starships</Text>
@@ -27,10 +28,11 @@ class Home extends React.Component{
             <TouchableOpacity style={styles.btn} onPress={() => this.props.navigation.navigate("Species")}>
                 <Text>Species</Text>
             </TouchableOpacity>
-        </View>);
+        </View>
+		</ImageBackground>);
     }
 }
-
+const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     home: {
         flex: 1,
@@ -49,6 +51,11 @@ const styles = StyleSheet.create({
         width: 200,
         backgroundColor: '#3498DB',
     },
+	image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+	}
 });
 
 export default Home;

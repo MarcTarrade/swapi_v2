@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { ImageBackground, View, Text, StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
 class Planets extends React.Component{
@@ -15,19 +15,22 @@ class Planets extends React.Component{
     render(){
         const Item = ({ title }) => (
             <View style={{marginTop: 10}}>
-              <Text style={{fontSize: 20}}>{title}</Text>
+              <Text style={{fontSize: 20, color : "white"}}>{title}</Text>
             </View>
           );
 
         return(
+		<ImageBackground source={image} style={styles.image}>
             <View style={styles.planets}>
-                <FlatList
-                    contentContainerStyle={{display: 'flex', justifyContent: 'space-evenly'}}
-                    data={this.state.planets}
-                    keyExtractor={(item, index) => index.toString()}
-                    renderItem={({ item }) => (<Item title={item.name}/>)}
-                />
+				
+					<FlatList
+						contentContainerStyle={{display: 'flex', justifyContent: 'space-evenly'}}
+						data={this.state.planets}
+						keyExtractor={(item, index) => index.toString()}
+						renderItem={({ item }) => (<Item title={item.name}/>)}
+					/>
             </View>
+		</ImageBackground>
         );
     }
 
@@ -36,28 +39,33 @@ class Planets extends React.Component{
             method: 'GET',
             headers: { "Content-Type":"application/json" }
         };
-        for (let i = 1; i <= 6; i++) {
-            fetch("https://www.swapi.tech/api/planets/?page="+i, init)
-            .then((res) => {
-                res.json()
-                .then((data) => {
-                    var res = data.results
-                    var planets = this.state.planets;
-                    res.forEach(element => {
-                        planets.push(element);
-                    });
-                    this.setState({ planets : planets });
+        fetch("https://www.swapi.tech/api/planets/?page=1&limit=100", init)
+        .then((res) => {
+            res.json()
+            .then((data) => {
+                var res = data.results
+                var planets = this.state.planets;
+                res.forEach(element => {
+                    planets.push(element);
                 });
-            }).catch(error => console.error(error));
-        }
+                this.setState({ planets : planets });
+            });
+        }).catch(error => console.error(error));
     }  
 }
+const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     planets: {
+		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
     },
+	image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  }
 });
 
 export default Planets;

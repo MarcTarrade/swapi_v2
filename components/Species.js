@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { ImageBackground, View, Text, StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
 class Species extends React.Component{
@@ -15,11 +15,12 @@ class Species extends React.Component{
     render(){
         const Item = ({ title }) => (
             <View style={{marginTop: 10}}>
-              <Text style={{fontSize: 20}}>{title}</Text>
+              <Text style={{fontSize: 20, color : "white"}}>{title}</Text>
             </View>
           );       
 
         return(
+		<ImageBackground source={image} style={styles.image}>
             <View style={styles.species}>
                 <FlatList
                     contentContainerStyle={{display: 'flex', justifyContent: 'space-evenly'}}
@@ -28,6 +29,7 @@ class Species extends React.Component{
                     renderItem={({ item }) => (<Item title={item.name}/>)}
                 />
             </View>
+		</ImageBackground>
         );
     }
 
@@ -54,12 +56,19 @@ class Species extends React.Component{
 
     
 }
+const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     species: {
+		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
+		justifyContent: 'center',
         alignItems: 'center',
     },
+	image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  }
 });
-
 export default Species;

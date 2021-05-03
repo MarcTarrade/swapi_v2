@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { ImageBackground, View, Text, StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
 class Vehicles extends React.Component{
@@ -15,11 +15,12 @@ class Vehicles extends React.Component{
     render(){
         const Item = ({ title }) => (
             <View style={{marginTop: 10}}>
-              <Text style={{fontSize: 20}}>{title}</Text>
+              <Text style={{fontSize: 20, color : "white"}}>{title}</Text>
             </View>
           );       
 
         return(
+		<ImageBackground source={image} style={styles.image}>
             <View style={styles.vehicles}>
                 <FlatList
                     contentContainerStyle={{display: 'flex', justifyContent: 'space-evenly'}}
@@ -28,25 +29,26 @@ class Vehicles extends React.Component{
                     renderItem={({ item }) => (<Item title={item.name}/>)}
                 />
             </View>
+		</ImageBackground>
         );
     }
 
-    getVehicles(){
+    getPlanets(){
         const init = {
             method: 'GET',
             headers: { "Content-Type":"application/json" }
         };
-        for (let i = 1; i <= 4; i++) {
-            fetch("https://www.swapi.tech/api/vehicles/?page="+i, init)
-            .then((res) => { 
+        for (let i = 1; i <= 6; i++) {
+            fetch("https://www.swapi.tech/api/planets/?page="+i, init)
+            .then((res) => {
                 res.json()
                 .then((data) => {
                     var res = data.results
-                    var vehicles = this.state.vehicles;
+                    var planets = this.state.planets;
                     res.forEach(element => {
-                        vehicles.push(element);
+                        planets.push(element);
                     });
-                    this.setState({ vehicles : vehicles });
+                    this.setState({ planets : planets });
                 });
             }).catch(error => console.error(error));
         }
@@ -54,12 +56,19 @@ class Vehicles extends React.Component{
 
     
 }
+const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     vehicles: {
+		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
     },
+	image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  }
 });
 
 export default Vehicles;

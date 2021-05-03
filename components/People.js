@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { ImageBackground, View, Text, StyleSheet } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 
 class People extends React.Component{
@@ -15,11 +15,12 @@ class People extends React.Component{
     render(){
         const Item = ({ title }) => (
             <View style={{marginTop: 10}}>
-              <Text style={{fontSize: 20}}>{title}</Text>
+              <Text style={{fontSize: 20, color : "white"}}>{title}</Text>
             </View>
           );       
 
         return(
+		<ImageBackground source={image} style={styles.image}>
             <View style={styles.people}>
                 <FlatList
                     contentContainerStyle={{display: 'flex', justifyContent: 'space-evenly'}}
@@ -28,6 +29,7 @@ class People extends React.Component{
                     renderItem={({ item }) => (<Item title={item.name}/>)}
                 />
             </View>
+		</ImageBackground>
         );
     }
 
@@ -54,12 +56,19 @@ class People extends React.Component{
 
     
 }
+const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     people: {
+		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
     },
+	image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+  }
 });
 
 export default People;
