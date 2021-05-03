@@ -1,13 +1,13 @@
-# Authors:
+# Membres du groupe:
 - Guillaume Barault : Guillaume2304
 - Benjamin Villain : Benjamin-Villain
 - Damien Vedani : RizzingRezz
 - Marc Tarrade : MarcTarrade
 
-# Description of the app:
-The objective of the application is to list all the information about the Star Wars universe(planets, species, starships, ...).
+# Description de l'application:
+L'objectif de l'application est de lister toutes les informations concernant l'univers de Star Wars(planètes, espèces, vaisseaux, ...).
 
-API : [https://www.swapi.tech/](https://www.swapi.tech/)
+Lien vers l'API : [https://www.swapi.tech/](https://www.swapi.tech/)
 
 # Installation
 
