@@ -57,6 +57,7 @@ class Species extends React.Component{
 const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     species: {
+		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
 		justifyContent: 'center',

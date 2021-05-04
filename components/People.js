@@ -57,6 +57,7 @@ class People extends React.Component{
 const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     people: {
+		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

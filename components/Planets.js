@@ -56,6 +56,7 @@ class Planets extends React.Component{
 const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     planets: {
+		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

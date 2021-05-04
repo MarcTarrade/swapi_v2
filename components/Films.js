@@ -53,6 +53,7 @@ class Films extends React.Component{
 const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     films: {
+		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

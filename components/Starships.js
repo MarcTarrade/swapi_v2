@@ -55,6 +55,7 @@ class Starships extends React.Component{
 const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     starships: {
+		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

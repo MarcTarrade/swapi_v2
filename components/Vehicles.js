@@ -57,6 +57,7 @@ class Vehicles extends React.Component{
 const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     vehicles: {
+		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
