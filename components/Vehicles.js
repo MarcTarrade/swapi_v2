@@ -33,25 +33,23 @@ class Vehicles extends React.Component{
         );
     }
 
-    getPlanets(){
+    getVehicles(){
         const init = {
             method: 'GET',
             headers: { "Content-Type":"application/json" }
         };
-        for (let i = 1; i <= 6; i++) {
-            fetch("https://www.swapi.tech/api/planets/?page="+i, init)
-            .then((res) => {
-                res.json()
-                .then((data) => {
-                    var res = data.results
-                    var planets = this.state.planets;
-                    res.forEach(element => {
-                        planets.push(element);
-                    });
-                    this.setState({ planets : planets });
+        fetch("https://www.swapi.tech/api/vehicles?page=1&limit=100", init)
+        .then((res) => { 
+            res.json()
+            .then((data) => {
+                var res = data.results
+                var vehicles = this.state.vehicles;
+                res.forEach(element => {
+                    vehicles.push(element);
                 });
-            }).catch(error => console.error(error));
-        }
+                this.setState({ vehicles : vehicles });
+            });
+        }).catch(error => console.error(error));
     }
 
     
@@ -59,7 +57,6 @@ class Vehicles extends React.Component{
 const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     vehicles: {
-		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

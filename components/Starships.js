@@ -38,26 +38,23 @@ class Starships extends React.Component{
             method: 'GET',
             headers: { "Content-Type":"application/json" }
         };
-        for (let i = 1; i <= 4; i++) {
-            fetch("https://www.swapi.tech/api/starships/?page="+i, init)
-            .then((res) => { 
-                res.json()
-                .then((data) => {
-                    var res = data.results
-                    var starships = this.state.starships;
-                    res.forEach(element => {
-                        starships.push(element);
-                    });
-                    this.setState({ starships : starships });
+        fetch("https://www.swapi.tech/api/starships?page=1&limit=100", init)
+        .then((res) => { 
+            res.json()
+            .then((data) => {
+                var res = data.results
+                var starships = this.state.starships;
+                res.forEach(element => {
+                    starships.push(element);
                 });
-            }).catch(error => console.error(error));
-        }
+                this.setState({ starships : starships });
+            });
+        }).catch(error => console.error(error));
     }
 }
 const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     starships: {
-		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

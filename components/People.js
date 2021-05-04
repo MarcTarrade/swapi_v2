@@ -38,20 +38,18 @@ class People extends React.Component{
             method: 'GET',
             headers: { "Content-Type":"application/json" }
         };
-        for (let i = 1; i <= 9; i++) {
-            fetch("https://www.swapi.tech/api/people/?page="+i, init)
-            .then((res) => { 
-                res.json()
-                .then((data) => {
-                    var res = data.results
-                    var people = this.state.people;
-                    res.forEach(element => {
-                        people.push(element);
-                    });
-                    this.setState({ people : people });
+        fetch("https://www.swapi.tech/api/people?page=1&limit=100", init)
+        .then((res) => { 
+            res.json()
+            .then((data) => {
+                var res = data.results
+                var people = this.state.people;
+                res.forEach(element => {
+                    people.push(element);
                 });
-            }).catch(error => console.error(error));
-        }
+                this.setState({ people : people });
+            });
+        }).catch(error => console.error(error));
     }
 
     
@@ -59,7 +57,6 @@ class People extends React.Component{
 const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     people: {
-		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',

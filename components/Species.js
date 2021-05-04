@@ -38,20 +38,18 @@ class Species extends React.Component{
             method: 'GET',
             headers: { "Content-Type":"application/json" }
         };
-        for (let i = 1; i <= 4; i++) {
-            fetch("https://www.swapi.tech/api/species/?page="+i, init)
-            .then((res) => { 
-                res.json()
-                .then((data) => {
-                    var res = data.results
-                    var species = this.state.species;
-                    res.forEach(element => {
-                        species.push(element);
-                    });
-                    this.setState({ species : species });
+        fetch("https://www.swapi.tech/api/species?page=1&limit=100", init)
+        .then((res) => { 
+            res.json()
+            .then((data) => {
+                var res = data.results
+                var species = this.state.species;
+                res.forEach(element => {
+                    species.push(element);
                 });
-            }).catch(error => console.error(error));
-        }
+                this.setState({ species : species });
+            });
+        }).catch(error => console.error(error));
     }
 
     
@@ -59,7 +57,6 @@ class Species extends React.Component{
 const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     species: {
-		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
 		justifyContent: 'center',

@@ -39,7 +39,7 @@ class Planets extends React.Component{
             method: 'GET',
             headers: { "Content-Type":"application/json" }
         };
-        fetch("https://www.swapi.tech/api/planets/?page=1&limit=100", init)
+        fetch("https://www.swapi.tech/api/planets?page=1&limit=100", init)
         .then((res) => {
             res.json()
             .then((data) => {
@@ -49,14 +49,13 @@ class Planets extends React.Component{
                     planets.push(element);
                 });
                 this.setState({ planets : planets });
-            });
+			});
         }).catch(error => console.error(error));
     }  
 }
 const image = require('./../assets/background.jpg');
 const styles = StyleSheet.create({
     planets: {
-		textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
