@@ -33,3 +33,11 @@ Toujours dans le répertoire lancer l'application avec:
 - Limité en termes de composants natif
 - Défis de sécurité liés à JavaScripts.
 - Problèmes de gestion de la mémoire
+
+Page d'accueil : 
+
+![image](https://user-images.githubusercontent.com/52315224/117616875-04cc1500-b16c-11eb-9e4d-d1dd8b54623b.png)
+
+Exemple d'une liste : 
+
+![image](https://user-images.githubusercontent.com/52315224/117616951-25946a80-b16c-11eb-8988-0253ea4442f4.png)
